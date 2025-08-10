@@ -1,0 +1,37 @@
+.body{
+    background-color: rgb(75, 54, 22);
+}
+.hero-section{
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 80vh;
+    background-color: rgb(75, 54, 22);
+}
+#chat-form{
+    display: flex;
+    margin-top: 470px;
+    width: 100%;
+    border: none;
+}
+#messageinput{
+    border-radius: 35px;
+    border: none;
+}
+#button{
+    margin-left: 10px;
+    border-radius: 35px;
+    background-color: blue;
+    border: none;
+}
+textarea{
+    width: 100%;
+}
