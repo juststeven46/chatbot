@@ -23,15 +23,41 @@
     border: none;
 }
 #messageinput{
-    border-radius: 35px;
+    font-size: 15px;
+    line-height: 1.5;
     border: none;
+    border-radius: 18px;
 }
 #button{
     margin-left: 10px;
-    border-radius: 35px;
+    border-radius: 8px;
     background-color: blue;
     border: none;
+    cursor: pointer;
+    width: 40px;
 }
 textarea{
     width: 100%;
+    padding: 10px 12px;
+    border-radius: 18px;
+    border: 1px solid #ccc;
+    resize: none;            /* ✅ hilangkan tanda perbesar-perkecil */
+    box-sizing: border-box;
+    outline: none;
+}
+textarea:focus {
+  border-color: #4a90e2;   /* border lebih jelas */
+  box-shadow: 0 0 0 3px rgba(74,144,226,0.3);  /* glow besar, tidak ketutup radius */
+}
+#answer{
+    background-color: gray;
+    color: black;
+}
+#message{
+    font-size: 17px;
+    line-height: 1.6;
+    padding: 10px 14px;
+    border-radius: 16px;
+    max-width: 70%;
+    word-wrap: break-word;
 }
