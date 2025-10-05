@@ -52,12 +52,14 @@ textarea:focus {
 #answer{
     background-color: gray;
     color: black;
+    width: 300px;
+    height: 200px;
+    border-radius: 16px;
 }
 #message{
     font-size: 17px;
     line-height: 1.6;
     padding: 10px 14px;
-    border-radius: 16px;
     max-width: 70%;
     word-wrap: break-word;
 }
