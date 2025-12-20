@@ -7,6 +7,8 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS 
 from dotenv import load_dotenv 
 import uuid 
+import docx
+import PyPDF2
 #start logging 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s') 
 logger = logging.getLogger(__name__) 
@@ -59,6 +61,34 @@ def update_bot_status(status, details=None):
     # handle pagination. 
     # parse and validate responses. 
     # wrap calls in functions.
+def parse_documents(file_path:str, file_extension: str):
+    try:
+        if file_extension == 'pdf':
+            with open(file_path, 'rb') as file:
+                reader = PyPDF2.PdfReader(file)
+                text = ""
+                for page in reader.pages:
+                    page_text = page.extract_text()
+                    if page_text:
+                        text += page_text + "\n"
+                return text
+        elif file_extension == 'docx':
+            doc = docx.Document(file_path)
+            text = ""
+            for para in doc.paragraphs:
+                text += para.text + '\n'
+            for table in doc.tables:
+                for row in table.rows:
+                    for cell in row.cells:
+                        text += cell.text + " "
+                    text += "\n"
+            return text
+        elif file_extension == 'txt':
+            with open(file_path, 'r', encoding='utf-8') as file:
+                return file.read()
+    except Exception as e:
+        logging.error(f"Error parsing document: {e}")
+        return None
 @app.route("/", methods=['GET', 'POST', 'OPTIONS'])
 def home():
     return render_template("chat.html")

@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./styling.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
-<body class="body">
-    <div class="hero-section">
-        <h1>professional.ai</h1>
-        <h2><br>How can I help you today?</br></h2>
+<body class="bg-black min-h-screen flex flex-col">
+
+  <!-- Hero Section -->
+  <div class="flex flex-col justify-center items-center text-white mt-10">
+    <h1 class="text-3xl font-semibold">professional.ai</h1>
+    <h2 class="text-xl mt-3">How can I help you today?</h2>
+  </div>
+
+  <!-- Chat Container -->
+  <div class="flex flex-col w-full max-w-2xl mx-auto p-5 bg-black rounded-lg gap-3 flex-grow min-h-0 overflow-auto" id="chat-container">
+    <div id="userchat" class="self-end bg-white text-black rounded-tl-lg rounded-tr-none rounded-br-lg rounded-bl-lg max-w-[70%] px-4 py-2 text-right"></div>
+    <div id="answer" class="self-start bg-gray-400 text-black rounded-tr-lg rounded-tl-none rounded-br-lg rounded-bl-lg max-w-[70%] px-4 py-2 text-left"></div>
+  </div>
+
+  <!-- Input Form -->
+  <form id="chat-form" class="flex justify-center mt-auto mb-10">
+    <div class="relative flex items-center bg-white rounded-full pl-3 pr-0.5 h-12 w-[90%] max-w-[750px] box-border" id="container">
+      <input type="file" id="file-input" style="display:none">
+      <!-- Attach Button -->
+      <div class="flex items-center">
+        <button id="attachbutton" type="button" class="absolute text-[35px] w-[40px] h-[40px] left-3 text-black flex items-center justify-center top-1/2 -translate-y-1/2 pb-2" style="line-height: 1;">
+        +
+        </button>
+      </div>
+      <!-- Textarea -->
+      <div class="bg-gray-400 items-start flex flex-row text-black w-auto rounded-sm text-left font-bold bg-cover text-center ml-8 h-8" id="input-area">
+        <h4 class="truncate" id="file-info"></h4>
+      </div>
+      <textarea id="messageInput" rows="1" class="flex-1 border-none outline-none resize-none bg-transparent text-[15px] leading-[1.4] pl-10 w-full transition-[height] duration-100 overflow-hidden h-[36px] pr-2"></textarea>
+      <!-- Send Button -->
+      <button id="submitbutton" type="submit" class="w-[45px] h-[45px] text-[20px] bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition flex-none">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
     </div>
-    <div class="card">
-        <form id="chat-form">
-            <textarea id="messageInput"></textarea>
-            <button id="button"type="submit"><i class="fa-solid fa-paper-plane"></i></button>
-        </form>
-        <div id="answer"></div>
-    </div>
-    <script src="./chat.js"></script>
+  </form>
 </body>
+<script src="./chat.js"></script>
 </html>
