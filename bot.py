@@ -28,7 +28,7 @@ BOT_STATUS = { "status": "Offline",
 } 
 BOT_START_TIME = None 
 def generate_id(): 
-    return str(uuid.uuid4()) # --- endpoint routing --- 
+    return str(uuid.uuid4()) # --- make random id --- 
     
 def update_bot_status(status, details=None):
     global BOT_STATUS, BOT_START_TIME
