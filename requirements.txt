@@ -1,0 +1,7 @@
+flask
+flask-cors
+python-dotenv
+requests
+python-docx
+PyPDF2
+gunicorn
